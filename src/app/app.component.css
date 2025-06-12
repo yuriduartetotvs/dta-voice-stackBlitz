@@ -1,0 +1,25 @@
+.cadastro-paciente-container {
+    background: #f5f6fa;
+    min-height: 100vh;
+    padding-top: 30px;
+}
+
+.cadastro-title {
+    color: #1976d2;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+
+.medicamentos-table {
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px #ddeaf5;
+}
+
+
+/* Sutil hover para tabelas */
+.medicamentos-table table tbody tr:hover {
+    background: #e3f2fd;
+}

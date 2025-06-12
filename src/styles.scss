@@ -1,0 +1,77 @@
+:root {
+    --color-brand-01-lightest: #d7f0fe;
+    --color-brand-01-lighter: #9cd8fc;
+    --color-brand-01-light: #6bc5fa;
+    --color-brand-01-base: #045b8f;
+    --color-brand-01-dark: #013f65;
+    --color-brand-01-darker: #002944;
+    --color-brand-01-darkest: #00182b;
+    --color-brand-02-base: #045b8f;
+    --color-brand-03-base: #045b8f;
+    --color-neutral-dark-70: #4d4d4d;
+    --color-neutral-dark-80: #363636;
+    --color-neutral-dark-90: #1a1a1a;
+    --color-neutral-dark-95: #0d0d0d;
+    --color-neutral-light-00: #ffffff;
+    --color-neutral-light-05: #f2f2f2;
+    --color-neutral-light-10: #e5e5e5;
+    --color-neutral-light-20: #cccccc;
+    --color-neutral-light-30: #b2b2b2;
+    --color-neutral-mid-40: #999999;
+    --color-neutral-mid-60: #666666;
+
+    --font-family-theme: "NunitoSans", sans-serif;
+    --font-family-theme-bold: "NunitoSans Bold", sans-serif;
+    --font-family-theme-extra-light: "NunitoSans Extra Light", sans-serif;
+
+    --font-family: var(--font-family-theme);
+    --font-family-bold: var(--font-family-theme-bold);
+    --font-family-extra-light: var(--font-family-theme-extra-light);
+    /* Removed duplicate body selector */
+    overflow: hidden;
+    max-height: 85vh;
+}
+
+
+.po-wrapper .po-page .po-page-content {
+    height: 85vh !important;
+}
+
+.po-page-slide-title {
+    font-family: "Roboto", sans-serif;
+    color: #4A5C60;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+// Add responsive adjustments
+@media (max-width: 576px) {
+    body {
+        overflow-y: auto !important;
+        max-height: none !important;
+    }
+    
+    .po-wrapper .po-page .po-page-content {
+        height: auto !important;
+        min-height: 85vh !important;
+    }
+    
+    // Adjust page slide for mobile
+    .po-page-slide {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    // Adjust buttons for mobile
+    .po-button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+// Fix overflow issues on smaller screens
+.po-page-slide-content {
+    overflow-x: hidden;
+}

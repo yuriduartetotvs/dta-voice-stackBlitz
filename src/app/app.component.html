@@ -1,0 +1,63 @@
+<div class="po-container cadastro-paciente-container">
+  <div class="po-row po-mb-4">
+    <div class="po-md-12 po-text-center">
+      <h2 class="cadastro-title">Cadastro de Paciente</h2>
+    </div>
+  </div>
+  <po-widget>
+    <form [formGroup]="pacienteForm">
+      <div class="po-row po-mb-2">
+        <po-input
+          class="po-md-6"
+          p-label="Nome do Paciente"
+          p-clean
+          formControlName="nomePaciente"
+          [p-required]="'true'"
+        ></po-input>
+        <po-number
+          class="po-md-2"
+          p-label="Idade"
+          formControlName="idadePaciente"
+          [p-min]="0"
+          [p-max]="120"
+          [p-required]="'true'"
+        ></po-number>
+      </div>
+
+      <div class="po-row po-mt-2 po-mb-2">
+        <div class="po-md-12">
+          <po-divider label="Medicamentos"></po-divider>
+
+          <po-table
+            class="medicamentos-table"
+            [p-items]="medicamentos"
+            [p-columns]="medicamentosColumns"
+            p-container>
+          </po-table>
+        </div>
+      </div>
+      <div class="po-row po-mt-4">
+        <div class="po-md-12 po-text-right">
+          <po-button 
+            p-label="Carregar dados para pagina"
+            p-icon="po-icon-ok"
+            p-kind="primary"
+            (p-click)="openNewVoice()">
+          </po-button>
+        </div>
+      </div>
+    </form>
+  </po-widget>
+</div>
+  <dta-voice 
+    labelHeader="Medicamentos"
+    [context]="context"
+    [jsonReturn]="jsonReturn" 
+    [idDtaVoice]="idDtaVoice"
+    [idProjeto]="idProjeto"
+    [user]="user"
+    [contingency]="contingency"
+    (informacaoEnviada)="receberInformacao({ menssagem
+    : $event.message, uniqueKey: $event.uniqueKey})" 
+    #sliderNewVoice>
+  </dta-voice>
