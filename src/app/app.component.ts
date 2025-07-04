@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { PoButtonModule, PoFieldModule, PoTableModule, PoNotificationModule, PoNotificationService, PoTableColumn, PoDividerModule, PoWidgetModule } from '@po-ui/ng-components';
 import { DtaVoiceComponent, JsonReturnAiModel, AudioJsonModel } from 'dta-voice';
 import { MedicamentosModel, Root } from './models';
+import { environment } from './enviroments';
 
 @Component({
   selector: 'app-root',
@@ -63,10 +64,10 @@ export class AppComponent {
 
   //variáveis para o DTA Voice
   context = "Medicamentos do paciente";
-  idProjeto = "";
-  idDtaVoice = "";
-  user = "";
-  contingency = '';
+  idProjeto = environment.idProjeto;
+  idDtaVoice = environment.idDtaVoice;
+  user = environment.user;
+  contingency = environment.contingency;
   sliderNewVoiceOpen=false;
 
   //Método que será chamado pelo DTA Voice para receber as informações processadas e retornada em JSON
