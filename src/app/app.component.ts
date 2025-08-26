@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PoButtonModule, PoFieldModule, PoTableModule, PoNotificationModule, PoNotificationService, PoTableColumn, PoDividerModule, PoWidgetModule } from '@po-ui/ng-components';
-import { DtaVoiceComponent, JsonReturnAiModel, AudioJsonModel } from 'dta-voice';
+import { AudioJsonModel, JsonReturnAiModel, VoicePageSlideComponent } from 'dta-voice';
 import { MedicamentosModel, Root } from './models';
 import { environment } from './enviroments';
 
@@ -15,7 +15,7 @@ import { environment } from './enviroments';
     PoDividerModule,
     PoTableModule,
     PoNotificationModule,
-    DtaVoiceComponent],
+    VoicePageSlideComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -123,7 +123,7 @@ export class AppComponent {
   medicamentoForm!: FormGroup;
   medicamentos: MedicamentosModel[] = [];
   @ViewChild('sliderNewVoice')
-  private readonly sliderNewVoice?: DtaVoiceComponent;
+  private readonly sliderNewVoice?: VoicePageSlideComponent;
 
 
   medicamentosColumns: PoTableColumn[] = [
