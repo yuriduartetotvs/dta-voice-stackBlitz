@@ -35,6 +35,9 @@ yarn add dta-voice --save
     [jsonReturn]="jsonReturn" 
     [idDtaVoice]="idDtaVoice"
     [idProjeto]="idProjeto"
+    [welcomeTitle]="valorX" /*opcional mudar o titulo da tela de boas vindas*/
+    [welcomeDescription]="'testeb'"/*opcional mudar o titulo da tela de boas vindas*/
+    [welcomeFeatures]="'testeC'"/*opcional mudar o titulo da tela de boas vindas*/
     [user]="user"
     [contingency]="contingency"
     (informacaoEnviada)="receberInformacao({ menssagem
@@ -109,47 +112,9 @@ https://html-teste-pi.vercel.app/
   
 ```typescript
 receberInformacao(informacao: { menssagem: JsonReturnAiModel; uniqueKey: number; }) {
-    // informacao.menssagem.forEach((item) => {
-
-    // });
-    if (informacao.menssagem.responseMessage) {
-      this.processDocument(informacao.menssagem.responseMessage);
-    } else {
-      console.error('Invalid response format:', informacao.menssagem.responseMessage);
-    }
-    console.log('Received information:', informacao);
-}
-
-private processDocument(inf: string) {
-    console.log('Input string:', inf);
-
-    try {
-      let cleanedJson = inf.trim();
-
-      if (cleanedJson.startsWith('"') && cleanedJson.endsWith('"')) {
-        cleanedJson = JSON.parse(cleanedJson); // This will unescape the JSON string
-      }
-
-      const json = JSON.parse(cleanedJson) as Root;
-      console.log('Parsed JSON:', json);
-
-      if (json && json.patient_name && Array.isArray(json.medications)) {
-        this.pacienteForm.patchValue({
-          nomePaciente: json.patient_name
-        });
-
-        this.pacienteForm.patchValue({
-          idadePaciente: json.patient_age
-        });
-
-        this.medicamentos = json.medications;
-      } else {
-        console.error('Invalid JSON structure:', json);
-      }
-    } catch (error) {
-      console.error('Error parsing JSON:', error);
-      console.error('Failed to parse:', inf);
-    }
+    //Abaixo é dado recebido pelo json estruturado, depois de recebe o json estruturado 
+    // pode preencher o formulario ou usar de outra forma
+    console.log(informacao);
 }
 ```
 
@@ -215,3 +180,4 @@ Observação: Certifique-se de que o caminho está correto para o seu projeto e 
 Referências:
 - [Angular Shepherd NPM](https://www.npmjs.com/package/angular-shepherd)
 - [Shepherd.js](https://shepherdjs.dev/)
+- [StackBlitz](https://stackblitz.com/~/github.com/yuriduartetotvs/dta-voice-stackBlitz)
